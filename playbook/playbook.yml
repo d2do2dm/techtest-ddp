@@ -76,3 +76,32 @@
       win_copy:
         src: /vagrant/files/
         dest: "C:\\websites\\test1"
+
+### Removes Default IIS Website
+
+- name: Remove IIS site
+  hosts: windows_host
+  
+  tasks: 
+    - name: Default IIS site
+      win_iis_website:
+        name: "Default Web Site"
+        state: absent
+              
+### Create new IIS website
+
+- name: Configure a new IIS site
+  hosts: windows_host
+  
+  tasks: 
+    - name: Test1 IIS site
+      win_iis_website:
+        name: "Test1"
+        state: started
+        port: 80
+        ip: 10.75.75.101
+        application_pool: "test1"
+        physical_path: c:\websites\test1
+        parameters: logfile.directory:c:\sites\logs|defaultDocument:index.html
+      register: website
+      
