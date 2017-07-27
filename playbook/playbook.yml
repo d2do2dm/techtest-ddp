@@ -49,6 +49,12 @@
     - name: 'test1'
       state: 'started'
 
+### Add's additional IIS app pool running .NET 2.0
+    win_iis_webapppool_list:
+    - name: 'challenge2'
+      state: 'started'
+      attributes: 'managedRuntimeVersion:v2.0|autostart:true'
+      
     win_file_folder_list:
     - path: 'c:\websites'
       state: 'directory'
