@@ -65,3 +65,14 @@
     - role: win_feature
     - role: win_iis_webapppool
     - role: win_file
+
+### Copy Files from Repo to Remote Host
+
+- name: Copy files to remote host
+  hosts: windows_host
+  
+  tasks: 
+    - name: Copy Repo Files
+      win_copy:
+        src: /vagrant/files/
+        dest: "C:\\websites\\test1"
