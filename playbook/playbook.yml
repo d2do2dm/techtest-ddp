@@ -42,6 +42,8 @@
     - 'Web-Mgmt-Tools'
     - 'Web-Mgmt-Console'
     - 'Web-Scripting-Tools'
+### Add's FileAndStorage-Services Feature
+    - 'FileAndStorage-Services'
 
     win_iis_webapppool_list:
     - name: 'test1'
